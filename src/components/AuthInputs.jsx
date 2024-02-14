@@ -29,6 +29,20 @@ const Input = styled.input`
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 `;
 
+const Button = styled.button`
+  padding: 1rem 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 0.25rem;
+  color: #1f2937;
+  background-color: #f0b322;
+  border-radius: 6px;
+  border: none;
+
+  &:hover {
+    background-color: #f0920e;
+  }
+`;
 export default function AuthInputs() {
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
@@ -57,7 +71,6 @@ export default function AuthInputs() {
           <Input
             type="email"
             $invalid={emailNotValid}
-            // className={emailNotValid ? "invalid" : undefined}
             onChange={(event) => handleInputChange("email", event.target.value)}
           />
         </p>
@@ -66,7 +79,6 @@ export default function AuthInputs() {
           <Input
             type="password"
             $invalid={emailNotValid}
-            // className={passwordNotValid ? "invalid" : undefined}
             onChange={(event) =>
               handleInputChange("password", event.target.value)
             }
@@ -77,9 +89,7 @@ export default function AuthInputs() {
         <button type="button" className="text-button">
           Create a new account
         </button>
-        <button className="button" onClick={handleLogin}>
-          Sign In
-        </button>
+        <Button onClick={handleLogin}>Sign In</Button>
       </div>
     </div>
   );
